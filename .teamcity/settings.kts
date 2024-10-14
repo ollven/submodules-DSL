@@ -94,10 +94,7 @@ object HttpsGithubComOllvenSubmodulesRefsHeadsMain1 : GitVcsRoot({
     name = "https://github.com/ollven/Submodules#refs/heads/main (1)"
     url = "https://github.com/ollven/Submodules"
     branch = "refs/heads/main"
-    branchSpec = """
-        refs/heads/*
-        refs/tags/*
-    """.trimIndent()
+    branchSpec = "refs/tags/*"
     checkoutSubmodules = GitVcsRoot.CheckoutSubmodules.NON_RECURSIVE_CHECKOUT
     userForTags = "ollven<ollven@yandex.ru>"
     authMethod = password {
