@@ -26,10 +26,11 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 'Debug' option is available in the context menu for the task.
 */
 
-version = "2024.03"
+version = "2024.07"
 
 project {
 
+    vcsRoot(HttpsGithubComOllvenSubmodulesRefsHeadsMain1)
     vcsRoot(HttpsGithubComOllvenSubmodulesRefsHeadsMain)
 
     buildType(Child1)
@@ -40,7 +41,7 @@ object Build : BuildType({
     name = "Build"
 
     vcs {
-        root(HttpsGithubComOllvenSubmodulesRefsHeadsMain)
+        root(HttpsGithubComOllvenSubmodulesRefsHeadsMain1)
 
         cleanCheckout = true
     }
@@ -81,6 +82,22 @@ object HttpsGithubComOllvenSubmodulesRefsHeadsMain : GitVcsRoot({
     url = "https://github.com/ollven/Submodules"
     branch = "refs/heads/main"
     branchSpec = "refs/heads/*"
+    checkoutSubmodules = GitVcsRoot.CheckoutSubmodules.NON_RECURSIVE_CHECKOUT
+    userForTags = "ollven<ollven@yandex.ru>"
+    authMethod = password {
+        userName = "ollven"
+        password = "credentialsJSON:9fd10c2d-c48f-40aa-9156-19acfe23cab2"
+    }
+})
+
+object HttpsGithubComOllvenSubmodulesRefsHeadsMain1 : GitVcsRoot({
+    name = "https://github.com/ollven/Submodules#refs/heads/main (1)"
+    url = "https://github.com/ollven/Submodules"
+    branch = "refs/heads/main"
+    branchSpec = """
+        refs/heads/*
+        refs/tags/*
+    """.trimIndent()
     checkoutSubmodules = GitVcsRoot.CheckoutSubmodules.NON_RECURSIVE_CHECKOUT
     userForTags = "ollven<ollven@yandex.ru>"
     authMethod = password {
